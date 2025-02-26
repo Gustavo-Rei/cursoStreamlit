@@ -5,9 +5,9 @@ st.text_area("Enter text")
 st.text_input("")
 st.selectbox("Qual a sua cor favorita?", ("Azul","Vermelho","Verde"))
 options = st.multiselect(
-    "What are your favorite colors",
-    ["Green", "Yellow", "Red", "Blue"],
-    ["Yellow", "Red"],
+    "Quais cores são suas favoritas?",
+    ["Verde", "Amarelo", "Vermelho", "Azul"],
+    ["Amarelo", "Vermelho"],
 )
 
 st.checkbox('Sorvete')
