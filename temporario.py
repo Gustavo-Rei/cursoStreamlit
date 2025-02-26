@@ -7,5 +7,5 @@ st.selectbox("Qual a sua cor favorita?", ("Azul","Vermelho","Verde"))
 st.multiselect(
   'Quais são suas cores favoritas?', 
   ['Azul','Vermelho','Verde','Azul'],
-  ['Amarelo','Rosa'])
+  default=['Amarelo','Rosa'])
 st.button("Botão Salvar")
