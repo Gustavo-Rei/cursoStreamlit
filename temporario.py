@@ -9,7 +9,7 @@ options = st.multiselect(
     ["Green", "Yellow", "Red", "Blue"],
     ["Yellow", "Red"],
 )
-st.write("You selected:", options)
+
 st.checkbox('Sorvete')
 st.checkbox('Café')
 st.checkbox('Refrigerante')
