@@ -15,14 +15,11 @@ options = st.multiselect(
 color = st.color_picker("Pick A Color", "#00f900")
 st.write("Sua cor é", color)
 
-
-
 st.feedback("stars")
 
 st.checkbox('Sorvete')
 st.checkbox('Café')
 st.checkbox('Refrigerante')
-
 
 st.button("Botão Salvar")
 
