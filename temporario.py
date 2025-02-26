@@ -1,5 +1,5 @@
-import streamlit as st
-import pandas as pd
+import streamlit as st #importa biblioteca
+import pandas as pd #importar biblioteca
 
 st.header("Cabeçalho")
 st.toggle("Toggle")
