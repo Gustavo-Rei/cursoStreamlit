@@ -10,7 +10,7 @@ options = st.multiselect(
     ["Amarelo", "Vermelho"],
 )
 
-st.color.picker("Pick A Color","#00f900")
+color = st.color.picker("Pick A Color","#00f900")
 st.feedback("stars")
 
 st.checkbox('Sorvete')
