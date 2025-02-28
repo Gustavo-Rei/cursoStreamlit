@@ -9,7 +9,6 @@ with st.form("formulario_aluno", clear_on_submit=True):
     rg = st.text_input("RG")
     ra = st.text_input("RA")
     email = st.text_input("E-mail")
-    telefone = st.text_input("Telefone")
     data_nascimento = st.date_input("Data de Nascimento")
     
     enviado = st.form_submit_button("Enviar")
@@ -21,7 +20,6 @@ if enviado:
     st.write(f"**CPF:** {cpf}")
     st.write(f"**RG:** {rg}")
     st.write(f"**RA:** {ra}")
-    st.write(f"**Telefone:** {telefone}")
     st.write(f"**E-mail:** {email}")
     st.write(f"**Data de Nascimento:** {data_nascimento}")
 
@@ -31,7 +29,6 @@ if enviado:
         "CPF": cpf,
         "RG": rg,
         "RA": ra,
-        "Telefone": telefone,
         "E-mail": email,
         "Data de Nascimento": data_nascimento,
     }
