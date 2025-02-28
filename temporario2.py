@@ -9,9 +9,9 @@ if "dados_alunos" not in st.session_state:
 
 with st.form("formulario_aluno", clear_on_submit=True):
     nome = st.text_input("Nome Completo")
-    cpf = st.text_input("CPF")
-    rg = st.text_input("RG")
-    ra = st.text_input("RA")
+    cpf = st.number_input("CPF")
+    rg = st.number_input("RG")
+    ra = st.number_input("RA")
     email = st.text_input("E-mail")
     data_nascimento = st.date_input("Data de Nascimento")
     
