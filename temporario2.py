@@ -1,6 +1,4 @@
-import streamlit as st
 import pandas as pd
-
 import streamlit as st
 
 def main():
@@ -11,7 +9,6 @@ def main():
         cpf = st.text_input("CPF")
         rg = st.text_input("RG")
         ra = st.text_input("RA")
-        telefone = st.text_input("Telefone")
         email = st.text_input("E-mail")
         data_nascimento = st.date_input("Data de Nascimento")
         
