@@ -3,6 +3,10 @@ import streamlit as st
 
 st.title("Formulário de Cadastro de Aluno")
 
+# Inicializa a lista de alunos na session_state, se ainda não existir
+if "dados_alunos" not in st.session_state:
+    st.session_state["dados_alunos"] = []
+
 with st.form("formulario_aluno", clear_on_submit=True):
     nome = st.text_input("Nome Completo")
     cpf = st.text_input("CPF")
@@ -33,9 +37,12 @@ if enviado:
         "Data de Nascimento": data_nascimento,
     }
     
-    # Convertendo o dicionário para um DataFrame do pandas
-    df_aluno = pd.DataFrame([dados_aluno])
+    # Adiciona os dados do aluno à lista de respostas na session_state
+    st.session_state["dados_alunos"].append(dados_aluno)
     
-    # Exibindo o DataFrame
+    # Converte a lista de dicionários para um DataFrame do pandas
+    df_alunos = pd.DataFrame(st.session_state["dados_alunos"])
+    
+    # Exibindo o DataFrame com todas as respostas armazenadas
     st.write("### Dados Armazenados")
-    st.dataframe(df_aluno)
+    st.dataframe(df_alunos)
