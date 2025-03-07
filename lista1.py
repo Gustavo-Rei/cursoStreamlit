@@ -2,43 +2,45 @@ import streamlit as st
 
 st.title("Dados da Receita")
 
-# Container para dados do leite condensado
+# Container para dados do Leite Condensado
 with st.container():
     st.header("Leite Condensado")
-    quantidade_leite = st.number_input(
-        "Digite a quantidade de latas/caixas de leite condensado:", 
+    qtdLeite = st.number_input(
+        "Digite a quantidade de latas/caixas de leite condensado:",
         min_value=0, step=1, format="%d"
     )
-    gramas_leite = st.number_input(
-        "Digite a quantidade de gramas por lata/caixa:", 
+    gLeite = st.number_input(
+        "Digite a quantidade de gramas de cada lata/caixa de leite condensado:",
         min_value=0.0, step=1.0
     )
+    totalGL = qtdLeite * gLeite
+    st.write("Total de gramas de leite condensado:", totalGL, "g")
 
-# Container para dados da farinha
+# Container para dados da Farinha
 with st.container():
     st.header("Farinha")
-    quantidade_xicaras = st.number_input(
-        "Digite a quantidade de xícaras de farinha:", 
+    qtdXicaras = st.number_input(
+        "Digite a quantidade de xícaras de farinha:",
         min_value=0, step=1, format="%d"
     )
-    gramas_xicara = st.number_input(
-        "Digite a quantidade de gramas por xícara:", 
+    gXicara = st.number_input(
+        "Digite a quantidade de gramas de cada xícara de farinha:",
         min_value=0.0, step=1.0
     )
+    totalGX = qtdXicaras * gXicara
+    st.write("Total de gramas de farinha:", totalGX, "g")
 
-# Container para dados dos ovos
+# Container para dados dos Ovos
 with st.container():
     st.header("Ovos")
-    quantidade_ovos = st.number_input(
-        "Digite a quantidade de ovos:", 
+    qtdOvos = st.number_input(
+        "Digite a quantidade de ovos da receita:",
         min_value=0, step=1, format="%d"
     )
 
-# Container para exibir os valores recebidos
+# Container para exibir o resumo dos dados
 with st.container():
-    st.header("Valores Recebidos")
-    st.write("Latas/caixas de leite condensado:", quantidade_leite)
-    st.write("Gramas por lata/caixa:", gramas_leite)
-    st.write("Xícaras de farinha:", quantidade_xicaras)
-    st.write("Gramas por xícara de farinha:", gramas_xicara)
-    st.write("Quantidade de ovos:", quantidade_ovos)
+    st.header("Resumo da Receita")
+    st.write(f"Leite condensado: {qtdLeite} lata(s)/caixa(s) com {gLeite} gramas cada. Total: {totalGL} g.")
+    st.write(f"Farinha: {qtdXicaras} xícara(s) com {gXicara} gramas cada. Total: {totalGX} g.")
+    st.write(f"Ovos: {qtdOvos} unidade(s)")
