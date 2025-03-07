@@ -2,6 +2,7 @@ import streamlit as st
 
 st.title("Dados da Receita")
 
+# Container para dados do Leite Condensado
 with st.container():
     st.header("Leite Condensado")
     qtdLeite = st.number_input(
@@ -15,6 +16,7 @@ with st.container():
     totalGL = qtdLeite * gLeite
     st.write("Total de gramas de leite condensado:", totalGL, "g")
 
+# Container para dados da Farinha
 with st.container():
     st.header("Farinha")
     qtdXicaras = st.number_input(
@@ -28,6 +30,7 @@ with st.container():
     totalGX = qtdXicaras * gXicara
     st.write("Total de gramas de farinha:", totalGX, "g")
 
+# Container para dados dos Ovos
 with st.container():
     st.header("Ovos")
     qtdOvos = st.number_input(
@@ -35,6 +38,7 @@ with st.container():
         min_value=0, step=1, format="%d"
     )
 
+# Container para exibir o resumo dos dados
 with st.container():
     st.header("Resumo da Receita")
     st.write(f"Leite condensado: {qtdLeite} lata(s)/caixa(s) com {gLeite} gramas cada. Total: {totalGL} g.")
