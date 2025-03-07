@@ -1,47 +1,42 @@
 import streamlit as st
 
-st.title("Dados da Receita")
-
-# Container para dados do Leite Condensado
+# Container para os inputs da receita
 with st.container():
-    st.header("Leite Condensado")
-    qtdLeite = st.number_input(
+    st.header("Dados de Entrada da Receita")
+    
+    # Dados do leite condensado
+    qtd_leite = st.number_input(
         "Digite a quantidade de latas/caixas de leite condensado:",
         min_value=0, step=1, format="%d"
     )
-    gLeite = st.number_input(
+    g_leite = st.number_input(
         "Digite a quantidade de gramas de cada lata/caixa de leite condensado:",
-        min_value=0.0, step=1.0
+        min_value=0.0, step=0.1, format="%.1f"
     )
-    totalGL = qtdLeite * gLeite
-    st.write("Total de gramas de leite condensado:", totalGL, "g")
-
-# Container para dados da Farinha
-with st.container():
-    st.header("Farinha")
-    qtdXicaras = st.number_input(
+    
+    # Dados da farinha
+    qtd_xicaras = st.number_input(
         "Digite a quantidade de xícaras de farinha:",
         min_value=0, step=1, format="%d"
     )
-    gXicara = st.number_input(
+    g_xicara = st.number_input(
         "Digite a quantidade de gramas de cada xícara de farinha:",
-        min_value=0.0, step=1.0
+        min_value=0.0, step=0.1, format="%.1f"
     )
-    totalGX = qtdXicaras * gXicara
-    st.write("Total de gramas de farinha:", totalGX, "g")
-
-# Container para dados dos Ovos
-with st.container():
-    st.header("Ovos")
-    qtdOvos = st.number_input(
+    
+    # Dados dos ovos
+    qtd_ovos = st.number_input(
         "Digite a quantidade de ovos da receita:",
         min_value=0, step=1, format="%d"
     )
 
-# Container para exibir o resumo dos dados
-with st.container():
-    st.header("Resumo da Receita")
-    st.write(f"Leite condensado: {qtdLeite} lata(s)/caixa(s) com {gLeite} gramas cada. Total: {totalGL} g.")
-    st.write(f"Farinha: {qtdXicaras} xícara(s) com {gXicara} gramas cada. Total: {totalGX} g.")
-    st.write(f"Ovos: {qtdOvos} unidade(s)")
+# Cálculo dos totais
+total_gl = qtd_leite * g_leite
+total_gx = qtd_xicaras * g_xicara
 
+# Container para exibir os resultados
+with st.container():
+    st.subheader("Resumo da Receita")
+    st.write(f"**Leite condensado:** {qtd_leite} lata(s)/caixa(s) com {g_leite} gramas cada. Total: {total_gl} g.")
+    st.write(f"**Farinha:** {qtd_xicaras} xícara(s) com {g_xicara} gramas cada. Total: {total_gx} g.")
+    st.write(f"**Ovos:** {qtd_ovos} unidade(s)")
