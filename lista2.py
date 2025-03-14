@@ -90,6 +90,8 @@ if exercicio == "Exercício 6 (IF-ELIF-ELSE)":
         else:
             st.write("Cadastro de patrimônio líquido realizado com sucesso.")
 
+# Exercício 7: A diferença está na quantidade de verificações realizadas pelo programa. Menos verificações e melhor desempenho em casos com múltiplas condições mutuamente exclusivas. (IF-ELIF-ELSE é mais eficiente em condições mutuamente exclusivas.)
+
 # Exercício 8: Formatação monetária e sinal
 if exercicio == "Exercício 8":
     valor = st.number_input("Digite o valor:", value=0.0, key="ex8_valor")
@@ -109,6 +111,8 @@ if exercicio == "Exercício 8":
         else:
             operacao = "débito" if valor < 0 else "crédito"
             st.write(f"Cadastro de {operacao} no passivo - valor de {valor_formatado} realizado com sucesso.")
+
+# Exercício 9: Sim, é possível, mas não é recomendado devido à perda de clareza. (É possível, mas a estrutura alinhada é preferível para clareza.)
 
 # Exercício 10: Validação de entradas
 if exercicio == "Exercício 10":
