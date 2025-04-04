@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Lista de times para os dropdowns
-times = ['Time A', 'Time B', 'Time C', 'Time D']
+times = ['Palmeiras', 'São Paulo', 'Santos', 'Corinthias']
 
 st.title("Calculadora de Pontuação do Jogo")
 
