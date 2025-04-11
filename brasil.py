@@ -67,7 +67,6 @@ df = df.rename(columns={"index": "Time"})
 df = df[["Time", "Pontos", "Partidas", "Gols Marcados", "Gols Sofridos", "Saldo de Gols"]]
 df = df.sort_values(by=["Pontos", "Saldo de Gols", "Gols Marcados"], ascending=False).reset_index(drop=True)
 df.index += 1  # primeira posição = 1
-df.insert(0, "Posição", df.index)
 
 # exibição da tabela
 st.dataframe(df)
