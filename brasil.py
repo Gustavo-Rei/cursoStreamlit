@@ -18,7 +18,7 @@ if 'stats' not in st.session_state:
 
 st.title("Calculadora de Pontuação do Jogo")
 
-# Seção para seleção de times e registro do placar
+# seção para seleção de times e registro do placar
 time1 = st.selectbox("Selecione o Time 1", teams, index=0)
 time2 = st.selectbox("Selecione o Time 2", teams, index=1)
 
@@ -41,7 +41,7 @@ else:
             st.session_state.stats[time1]["Pontos"] += 1
             st.session_state.stats[time2]["Pontos"] += 1
 
-        # Atualiza estatísticas do time1
+        # atualiza infomações do time1
         st.session_state.stats[time1]["Partidas"] += 1
         st.session_state.stats[time1]["Gols Marcados"] += placar_time1
         st.session_state.stats[time1]["Gols Sofridos"] += placar_time2
@@ -49,7 +49,7 @@ else:
             st.session_state.stats[time1]["Gols Marcados"] - st.session_state.stats[time1]["Gols Sofridos"]
         )
 
-        # Atualiza estatísticas do time2
+        # atualiza informações dp time2
         st.session_state.stats[time2]["Partidas"] += 1
         st.session_state.stats[time2]["Gols Marcados"] += placar_time2
         st.session_state.stats[time2]["Gols Sofridos"] += placar_time1
@@ -57,17 +57,17 @@ else:
             st.session_state.stats[time2]["Gols Marcados"] - st.session_state.stats[time2]["Gols Sofridos"]
         )
 
-# Monta a tabela de classificação com a ordem solicitada
+# montagem da tabela de classificação
 st.subheader("Tabela de Classificação")
 
 df = pd.DataFrame(st.session_state.stats).T.reset_index()
 df = df.rename(columns={"index": "Time"})
 
-# Reorganiza e ordena as colunas
+# reorganiza informações da tabela
 df = df[["Time", "Pontos", "Partidas", "Gols Marcados", "Gols Sofridos", "Saldo de Gols"]]
 df = df.sort_values(by=["Pontos", "Saldo de Gols", "Gols Marcados"], ascending=False).reset_index(drop=True)
-df.index += 1  # Começa a contagem da posição em 1
+df.index += 1  # primeira posição = 1
 df.insert(0, "Posição", df.index)
 
-# Exibe a tabela
+# exibição da tabela
 st.dataframe(df)
