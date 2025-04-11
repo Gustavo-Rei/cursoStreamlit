@@ -4,7 +4,7 @@ import pandas as pd
 # Lista de times
 teams = ['Palmeiras', 'São Paulo', 'Santos', 'Corinthias']
 
-# Inicializa os dados dos times na session_state, se ainda não estiverem criados
+# inicializa os dados dos times
 if 'stats' not in st.session_state:
     st.session_state.stats = {
         team: {
