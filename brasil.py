@@ -9,9 +9,10 @@ if 'stats' not in st.session_state:
     st.session_state.stats = {
         team: {
             "Pontos": 0,
-            "Saldo de Gols": 0,
+            "Partidas": 0,
             "Gols Marcados": 0,
-            "Gols Sofridos": 0
+            "Gols Sofridos": 0,
+            "Saldo de Gols": 0
         } for team in teams
     }
 
@@ -40,22 +41,33 @@ else:
             st.session_state.stats[time1]["Pontos"] += 1
             st.session_state.stats[time2]["Pontos"] += 1
 
-        # Atualiza gols marcados e gols sofridos para o time 1
+        # Atualiza estatísticas do time1
+        st.session_state.stats[time1]["Partidas"] += 1
         st.session_state.stats[time1]["Gols Marcados"] += placar_time1
         st.session_state.stats[time1]["Gols Sofridos"] += placar_time2
         st.session_state.stats[time1]["Saldo de Gols"] = (
             st.session_state.stats[time1]["Gols Marcados"] - st.session_state.stats[time1]["Gols Sofridos"]
         )
 
-        # Atualiza gols marcados e gols sofridos para o time 2
+        # Atualiza estatísticas do time2
+        st.session_state.stats[time2]["Partidas"] += 1
         st.session_state.stats[time2]["Gols Marcados"] += placar_time2
         st.session_state.stats[time2]["Gols Sofridos"] += placar_time1
         st.session_state.stats[time2]["Saldo de Gols"] = (
             st.session_state.stats[time2]["Gols Marcados"] - st.session_state.stats[time2]["Gols Sofridos"]
         )
 
-# Exibe a tabela de classificação de forma contínua
+# Monta a tabela de classificação com a ordem solicitada
 st.subheader("Tabela de Classificação")
+
 df = pd.DataFrame(st.session_state.stats).T.reset_index()
 df = df.rename(columns={"index": "Time"})
+
+# Reorganiza e ordena as colunas
+df = df[["Time", "Pontos", "Partidas", "Gols Marcados", "Gols Sofridos", "Saldo de Gols"]]
+df = df.sort_values(by=["Pontos", "Saldo de Gols", "Gols Marcados"], ascending=False).reset_index(drop=True)
+df.index += 1  # Começa a contagem da posição em 1
+df.insert(0, "Posição", df.index)
+
+# Exibe a tabela
 st.dataframe(df)
