@@ -13,7 +13,7 @@ data = response.json()
 for team in data['teams']:
     st.write(team['name'])
 # Lista de times
-teams = ['Palmeiras', 'São Paulo', 'Santos', 'Corinthias']
+teams = ['data.teams']
 
 # inicializa os dados dos times
 if 'stats' not in st.session_state:
