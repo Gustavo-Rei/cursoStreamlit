@@ -10,8 +10,8 @@ response = requests.get(uri, headers=headers)
 data = response.json()
 
 # Exibe o nome de cada time
-for team in data['teams']:
-    st.write(team['name'])
+# for team in data['teams']:
+    #st.write(team['name'])
 # Lista de times obtida da API
 teams = [team['name'] for team in data['teams']]
 
