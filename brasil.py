@@ -12,8 +12,8 @@ data = response.json()
 # Exibe o nome de cada time
 for team in data['teams']:
     st.write(team['name'])
-# Lista de times
-teams = ['name']
+# Lista de times obtida da API
+teams = [team['name'] for team in data['teams']]
 
 # inicializa os dados dos times
 if 'stats' not in st.session_state:
