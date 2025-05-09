@@ -13,7 +13,7 @@ data = response.json()
 for team in data['teams']:
     st.write(team['name'])
 # Lista de times
-teams = ['data.teams']
+teams = ['team.name']
 
 # inicializa os dados dos times
 if 'stats' not in st.session_state:
