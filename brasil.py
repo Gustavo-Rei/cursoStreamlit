@@ -11,7 +11,7 @@ data = response.json()
 
 # Exibe o nome de cada time
 for team in data['teams']:
-    print(team['name'])
+    st.write(team['name'])
 # Lista de times
 teams = ['Palmeiras', 'São Paulo', 'Santos', 'Corinthias']
 
