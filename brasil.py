@@ -9,11 +9,10 @@ headers = { 'X-Auth-Token': '1bf3a127cc52496c87eb2221fd3dbf05' }
 response = requests.get(uri, headers=headers)
 data = response.json()
 
-# Exibe o nome de cada time
-# for team in data['teams']:
-    #st.write(team['name'])
-# Lista de times obtida da API
+# ——————— Aqui! ———————
+# Extrai dos dados da API uma lista de nomes de times
 teams = [team['name'] for team in data['teams']]
+# ————————————————
 
 # inicializa os dados dos times
 if 'stats' not in st.session_state:
@@ -27,7 +26,7 @@ if 'stats' not in st.session_state:
         } for team in teams
     }
 
-st.title("Brasileirão - Seria A")
+st.title("Brasileirão - Série A")
 
 # seção para seleção de times e registro do placar
 time1 = st.selectbox("Selecione o Time 1", teams, index=0)
