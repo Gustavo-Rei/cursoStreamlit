@@ -16,7 +16,7 @@ if 'stats' not in st.session_state:
         } for team in teams
     }
 
-st.title("Calculadora de Pontuação do Jogo")
+st.title("Brasileirão - Seria A")
 
 # seção para seleção de times e registro do placar
 time1 = st.selectbox("Selecione o Time 1", teams, index=0)
