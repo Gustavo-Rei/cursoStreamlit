@@ -1,6 +1,17 @@
 import streamlit as st
 import pandas as pd
+import requests
 
+# Endpoint da versão 4 da API para listar times da Série A (2025)
+uri = 'https://api.football-data.org/v4/competitions/2013/teams'
+headers = { 'X-Auth-Token': '1bf3a127cc52496c87eb2221fd3dbf05' }
+
+response = requests.get(uri, headers=headers)
+data = response.json()
+
+# Exibe o nome de cada time
+for team in data['teams']:
+    print(team['name'])
 # Lista de times
 teams = ['Palmeiras', 'São Paulo', 'Santos', 'Corinthias']
 
