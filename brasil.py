@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
+import plotly.express as px
 
 # Endpoint da versão 4 da API para listar times da Série A (2025)
 uri = 'https://api.football-data.org/v4/competitions/2013/teams'
@@ -81,7 +82,21 @@ df.index += 1  # primeira posição = 1
 # exibição da tabela
 st.dataframe(df)
 
+# exibição de gráfico
 st.subheader("Distribuição de Pontos por Time")
 
-# Cria o gráfico de barras com os dados de pontos por time
-st.bar_chart(df.set_index("Time")["Pontos"])
+# Cria o gráfico de barras horizontal com os dados de pontos por time
+fig = px.bar(
+    df,
+    x="Pontos",
+    y="Time",
+    orientation="h",
+    title="Pontos por Time",
+    labels={"Pontos": "Pontos", "Time": "Time"},
+)
+
+# Atualiza o layout para ordenar os times com mais pontos no topo
+fig.update_layout(yaxis=dict(autorange="reversed"))
+
+# Exibe o gráfico no Streamlit
+st.plotly_chart(fig, use_container_width=True)
