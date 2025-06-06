@@ -80,22 +80,3 @@ df.index += 1  # primeira posição = 1
 
 # exibição da tabela
 st.dataframe(df)
-
-# exibição de gráfico
-st.subheader("Distribuição de Pontos por Time")
-
-# Cria o gráfico de barras horizontal com os dados de pontos por time
-fig = px.bar(
-    df,
-    x="Pontos",
-    y="Time",
-    orientation="h",
-    title="Pontos por Time",
-    labels={"Pontos": "Pontos", "Time": "Time"},
-)
-
-# Atualiza o layout para ordenar os times com mais pontos no topo
-fig.update_layout(yaxis=dict(autorange="reversed"))
-
-# Exibe o gráfico no Streamlit
-st.plotly_chart(fig, use_container_width=True)
