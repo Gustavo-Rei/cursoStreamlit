@@ -80,3 +80,8 @@ df.index += 1  # primeira posição = 1
 
 # exibição da tabela
 st.dataframe(df)
+
+st.subheader("Evolução dos Pontos por Time")
+
+# Cria o gráfico de linha com os dados de pontos por time
+st.line_chart(df.set_index("Time")["Pontos"])
