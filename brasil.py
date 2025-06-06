@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import requests
-import plotly as px
 
 # Endpoint da versão 4 da API para listar times da Série A (2025)
 uri = 'https://api.football-data.org/v4/competitions/2013/teams'
